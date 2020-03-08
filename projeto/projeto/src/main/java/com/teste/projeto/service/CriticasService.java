@@ -48,7 +48,7 @@ public class CriticasService {
 		repository.deleteById(_id);
 	}
 	
-	public Criticas createFilme(Criticas filme) {
+	public void createFilme(Criticas filme) {
 		filme.set_id(ObjectId.get());
 
 		float media = calcularNotas(filme);
@@ -58,7 +58,6 @@ public class CriticasService {
 		
 		repository.save(filme);
 				
-		return filme;
 }
 	
 	
