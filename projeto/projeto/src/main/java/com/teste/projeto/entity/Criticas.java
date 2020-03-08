@@ -1,4 +1,4 @@
-package com.teste.projeto;
+package com.teste.projeto.entity;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -65,7 +65,7 @@ public class Criticas {
 
 	// ObjectId needs to be converted to string
 	public String get_id() {
-		return _id.toHexString();
+		return _id.toString();
 	}
 
 	public String getGenero() {

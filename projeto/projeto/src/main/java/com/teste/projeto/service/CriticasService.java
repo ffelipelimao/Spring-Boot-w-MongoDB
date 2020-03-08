@@ -1,4 +1,4 @@
-package com.teste.projeto;
+package com.teste.projeto.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,6 +6,10 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.teste.projeto.config.Utils;
+import com.teste.projeto.entity.Criticas;
+import com.teste.projeto.repository.CriticasRepository;
 
 @Service
 public class CriticasService {
@@ -26,7 +30,7 @@ public class CriticasService {
 	}
 	
 	
-	public Criticas modifyFilmebyId(ObjectId id, Criticas filme) {
+	public void modifyFilmebyId(ObjectId id, Criticas filme) {
 		filme.set_id(id);
 
 		float media = calcularNotas(filme);
@@ -34,13 +38,15 @@ public class CriticasService {
 		filme.setGeral(utilidade.formatarFloat(media));
 		filme.setDataInsert(LocalDateTime.now());
 		
-		return repository.save(filme);
+		 repository.save(filme);
 	}
 	
-//	public Pets deletePetById(ObjectId id) {
-//		return repository.deleteById(id);
-//		
-//	}
+	public void deleteFilmeById(ObjectId id) {
+		
+		String _id = id.toString();
+		
+		repository.deleteById(_id);
+	}
 	
 	public Criticas createFilme(Criticas filme) {
 		filme.set_id(ObjectId.get());

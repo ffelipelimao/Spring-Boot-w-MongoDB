@@ -1,4 +1,4 @@
-package com.teste.projeto;
+package com.teste.projeto.config;
 
 import java.text.DecimalFormat;
 import org.springframework.stereotype.Component;
