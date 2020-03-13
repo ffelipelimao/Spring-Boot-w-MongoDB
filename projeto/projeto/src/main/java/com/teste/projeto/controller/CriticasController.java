@@ -45,7 +45,7 @@ public class CriticasController {
 	public ResponseEntity<?> update(@PathVariable("id") ObjectId id, @RequestBody Criticas filme) {
 		verifyFilmeById(id);
 		service.modifyFilmebyId(id,filme);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(utilidade.updateMessage(),HttpStatus.OK);
 	}
 	
 	
@@ -53,14 +53,14 @@ public class CriticasController {
 	public ResponseEntity<?> delete(@PathVariable("id") ObjectId id) {
 		verifyFilmeById(id);
 		service.deleteFilmeById(id);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(utilidade.deleteMessage(),HttpStatus.OK);
 	}
 
 
 	@PostMapping(value = ("/"))
 	public ResponseEntity<?> create(@Valid @RequestBody Criticas filme) {
 		 service.createFilme(filme);
-		 return new ResponseEntity<>(HttpStatus.OK);
+		 return new ResponseEntity<>(utilidade.createdMessage(),HttpStatus.OK);
 	}
 	
 	private void verifyFilmeById(ObjectId id){
