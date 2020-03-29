@@ -3,12 +3,14 @@ package com.teste.projeto.controller;
 import java.util.List;
 
 
+
 import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,7 @@ import com.teste.projeto.config.ResourceNotFoundException;
 import com.teste.projeto.entity.Criticas;
 import com.teste.projeto.service.CriticasService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/critica")
 public class CriticasController {

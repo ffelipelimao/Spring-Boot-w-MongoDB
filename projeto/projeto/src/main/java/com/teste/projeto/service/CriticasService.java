@@ -1,12 +1,14 @@
 package com.teste.projeto.service;
 
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import com.teste.projeto.config.Utils;
 import com.teste.projeto.entity.Criticas;
 import com.teste.projeto.repository.CriticasRepository;
@@ -22,7 +24,13 @@ public class CriticasService {
 	
 	public List<Criticas> getAllFilmes() {
 		List<Criticas> list = repository.findAll();
-		return list;
+		
+		for(Criticas filme:list){
+				filme.setDiferenca(utilidade.DiferencaEntreDatas(filme.getDataInsert()));
+		}
+		
+		
+		return inverter(list);
 	}
 	
 	public Criticas getFilmeById(ObjectId id) {
@@ -76,6 +84,17 @@ public class CriticasService {
 
 		return result;
 	}
+	
+	private List<Criticas> inverter(List<Criticas> arr) {
+
+		ArrayList<Criticas> result = new ArrayList<>();
+        for (int i = arr.size() - 1; i >= 0; i--) {
+            result.add((Criticas) arr.get(i));
+        }
+
+        return result;
+        }
+	
 
 
 }

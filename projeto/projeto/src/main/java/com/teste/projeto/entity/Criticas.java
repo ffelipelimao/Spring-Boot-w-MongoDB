@@ -9,15 +9,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Criticas {
 
 	@Id
-	public ObjectId _id;
+	private ObjectId _id;
 
-	public String name;
-	public String conteudo;
-	public LocalDateTime dataInsert;
-	public String genero;
-	public String image;
-	public float geral;
-	public Map<String,String> nota;
+	private String name;
+	private String conteudo;
+	private LocalDateTime dataInsert;
+	private String diferenca;
+	private String genero;
+	private String image;
+	private float geral;
+	private Map<String,String> nota;
 
 	// Constructors
 	public Criticas() {
@@ -31,6 +32,16 @@ public class Criticas {
 		this.genero = image;
 		this.nota = nota;
 		this.conteudo = conteudo;
+	}
+	
+	
+	public String getDiferenca() {
+		return diferenca;
+	}
+
+
+	public void setDiferenca(String diferenca) {
+		this.diferenca = diferenca;
 	}
 	
 	
