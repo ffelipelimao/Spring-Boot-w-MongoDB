@@ -53,5 +53,29 @@ public class Utils {
 
 	}
 	
+<<<<<<< HEAD
 
+=======
+	public String createdMessage (){
+		return "{\n" +
+				"  \"status\": 201, \n" +
+				"  \"message\" : \"Filme foi criado\"\n" +
+				"}";
+	}
+
+	public String deleteMessage (){
+		return"{\n" +
+				"  \"status\": 200, \n" +
+				"  \"message\" : \"Filme foi deletado\"\n" +
+				"}";
+	}
+	public String updateMessage (){
+		return "{\n" +
+				"  \"status\": 200, \n" +
+				"  \"message\" : \"Filme atualizado\"\n" +
+				"}";
+	}
+	
+  
+>>>>>>> 92e10681e3453de3a6ad5e20e9e186f07a7748c1
 }
