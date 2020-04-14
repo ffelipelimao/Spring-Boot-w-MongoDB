@@ -37,14 +37,14 @@ public class Utils {
 			return DataInseridaFormatada;
 
 		} else {
-			long intervaloHoras = ChronoUnit.HOURS.between(agora,Datainsert);
+			long intervaloHoras = ChronoUnit.HOURS.between(Datainsert,agora);
 
 			if (intervaloHoras <= 23 && intervaloHoras >= 1) {
 
 				return intervaloHoras + " horas atrás";
 
 			} else {
-				long intervaloMinutos = ChronoUnit.MINUTES.between(agora, Datainsert);
+				long intervaloMinutos = ChronoUnit.MINUTES.between(Datainsert,agora);
 				
 				return intervaloMinutos + " minutos atás";
 			}
