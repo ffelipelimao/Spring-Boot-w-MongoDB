@@ -24,9 +24,9 @@ public class CriticasService {
 	
 	public List<Criticas> getAllFilmes() {
 		List<Criticas> list = repository.findAll();
-
+	
 		list.forEach(f -> f.setDiferenca(utilidade.DiferencaEntreDatas(f.getDataInsert())));
-
+		
 		return inverter(list);
 	}
 	
@@ -88,7 +88,7 @@ public class CriticasService {
 		for (int i = arr.size() - 1; i >= 0; i--) {
 			result.add((Criticas) arr.get(i));
 		}
-
+		
 		return result;
 	}
 

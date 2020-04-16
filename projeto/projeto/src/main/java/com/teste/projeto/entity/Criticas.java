@@ -31,7 +31,11 @@ public class Criticas {
 	private float geral;
 	private Map<String,String> nota;
 	
-	
+	// ObjectId precisa ser convertido pra string, para conseguir retornar seu valor
+	public String get_id() {
+		return _id.toString();
+	}
+
 	
 }
 

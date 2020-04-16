@@ -24,7 +24,7 @@ import com.teste.projeto.config.ResourceNotFoundException;
 import com.teste.projeto.entity.Criticas;
 import com.teste.projeto.service.CriticasService;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/critica")
 public class CriticasController {
@@ -34,7 +34,9 @@ public class CriticasController {
 	
 	@GetMapping(value = ("/"))
 	public List<Criticas> findAll() {
-		return service.getAllFilmes();
+		List<Criticas> result = service.getAllFilmes();
+
+		return result;
 	}
 
 	@GetMapping(value = ("/{id}"))
