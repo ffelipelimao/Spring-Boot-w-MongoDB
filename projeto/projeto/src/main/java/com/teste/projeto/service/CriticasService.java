@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+
 import com.teste.projeto.config.Utils;
 import com.teste.projeto.entity.Criticas;
 import com.teste.projeto.repository.CriticasRepository;
@@ -24,10 +26,15 @@ public class CriticasService {
 	
 	public List<Criticas> getAllFilmes() {
 		List<Criticas> list = repository.findAll();
-	
+			
+		//para cara f calcula a data de diferença...
 		list.forEach(f -> f.setDiferenca(utilidade.DiferencaEntreDatas(f.getDataInsert())));
 		
-		return inverter(list);
+		
+		//orderna por data mais recente...
+		list.sort((d1,d2) -> d2.getDataInsert().compareTo(d1.getDataInsert()));
+		
+		return list;
 	}
 	
 	public Criticas getFilmeById(ObjectId id) {
@@ -81,16 +88,5 @@ public class CriticasService {
 
 		return result;
 	}
-	
-	private List<Criticas> inverter(List<Criticas> arr) {
-
-		ArrayList<Criticas> result = new ArrayList<>();
-		for (int i = arr.size() - 1; i >= 0; i--) {
-			result.add((Criticas) arr.get(i));
-		}
-		
-		return result;
-	}
-
 
 }

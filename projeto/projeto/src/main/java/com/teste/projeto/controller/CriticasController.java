@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
@@ -34,9 +35,7 @@ public class CriticasController {
 	
 	@GetMapping(value = ("/"))
 	public List<Criticas> findAll() {
-		List<Criticas> result = service.getAllFilmes();
-
-		return result;
+		return service.getAllFilmes();
 	}
 
 	@GetMapping(value = ("/{id}"))
